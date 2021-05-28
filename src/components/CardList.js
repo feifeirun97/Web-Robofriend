@@ -1,0 +1,17 @@
+import Card from './Card.js';
+const CardList = ({robots}) =>{
+	return(
+	<div>
+	    {
+	    robots.map((bot, index)=>{
+		return (
+			<Card 
+			key= {index} 
+			id={robots[index].id} 
+			name={robots[index].name} 
+			email={robots[index].email} 
+			/>)})
+	    }
+    </div>);
+};
+export default CardList;
