@@ -1,6 +1,6 @@
 # Robofriends
 
-This is a small react project.[Click to display](https://feifeirun97.github.io/Web-Robofriend/)
+This is a simple react project.[Click to display](https://feifeirun97.github.io/Web-Robofriend/)
 
 By typing in the search box, the robots will be filtered.
 
