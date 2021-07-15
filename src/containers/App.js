@@ -7,26 +7,21 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 //标准格式
 function App() {
-	// constructor() {
-	// 	super();
-	// 	// console.log('constructor')
-	// 	this.state={
-	// 		robots:[],
-	// 		searchfield:''
-	// 	} 
-	// }
+
 	//[state，改变state的函数]=useState(初始值)
 	const [robots, setRobots] = useState([]);
 	const [searchfield, setSearchfield] = useState('');
 
-	// //Api爬去数据转化为obj array. fetch是window自带的
-	// //https://jsonplaceholder.typicode.com/
-	// componentDidMount(){
-	// 	// console.log('componentDidMount')
-	// 	fetch('https://jsonplaceholder.typicode.com/users')
-	// 	.then(response => response.json())
-	// 	.then(json => this.setState({robots:json}))
-	// }
+
+	//rerender时函数会自动运行, useEffect第二个参数用变化就刷新useEffect，不设置的话会无限循环
+	//useEffect替换componentDidmount()
+	useEffect(() => {
+		fetch('https://jsonplaceholder.typicode.com/users')
+			.then(response => response.json())
+			.then(users => setRobots(users))
+	}, [])
+
+
 	//这里必须用const来定义函数，否则this会指向input而报错
 	//function不必加前缀因为是class
 	const onSearchChange = (event) => {
